@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Projector" basedir="." default="message">
+    <target name="message">
+        <echo>${ant.project.name}</echo>
+    </target>
+
+    <property name="build" value="build"/>
+
+    <target name="mktree" depends="message">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="mktree">
+        <copy file="hta" tofile="${build}/app.hta" >
+            <filterchain>
+                <concatfilter append="index.html" />
+                <tokenfilter delimoutput="${line.separator}" />
+            </filterchain>
+        </copy>
+    </target>
+
+</project>
