@@ -6,7 +6,7 @@
 
     <property name="build" value="build"/>
 
-    <target name="mktree" depends="message">
+    <target name="mkTree" depends="message">
         <delete dir="${build}"/>
         <mkdir dir="${build}"/>
     </target>
@@ -21,7 +21,5 @@
         <copydir src="js" dest="${build}/js"/>
         <copydir src="css" dest="${build}/css"/>
         <copydir src="images" dest="${build}/images"/>
-
     </target>
-
 </project>
