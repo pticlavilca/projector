@@ -7,16 +7,21 @@
     <property name="build" value="build"/>
 
     <target name="mktree" depends="message">
+        <delete dir="${build}"/>
         <mkdir dir="${build}"/>
     </target>
 
-    <target name="compile" depends="mktree">
+    <target name="compile">
         <copy file="hta" tofile="${build}/app.hta" >
             <filterchain>
                 <concatfilter append="index.html" />
                 <tokenfilter delimoutput="${line.separator}" />
             </filterchain>
         </copy>
+        <copydir src="js" dest="${build}/js"/>
+        <copydir src="css" dest="${build}/css"/>
+        <copydir src="images" dest="${build}/images"/>
+
     </target>
 
 </project>
